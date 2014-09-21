@@ -1,126 +1,75 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="app/styles/main.css">
+    <!-- endbuild -->
+  </head>
 
-    <div id="mainContainer" class="container">
-
+  <body ng-app="rivlApp">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#/competition/1">Leaderboard</a></li>
+            <li><a href="#/competition/1/game">Enter result</a></li>
+            <li><a href="#/competition/1/tournament">Tournament</a></li>
+            <!--<li><a href="#">Compare rivls</a></li>-->
+            <li><a href="#/competition_graph/1">Graph</a></li>
+            <li id="notifications" class="hide"><a href="#/competitor_home/<%=id%>">Notifications <span class="badge">4</span></a></li>
+            <li id="login" class="hide"><a>Login</a></li>
+            <li id="logout" class="hide"><a>Logout</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container" style="padding-top: 70px;">
+      <div ng-view></div>
     </div>
 
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
 
-    <!-- Templates -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-    <script id="notifications" type="text/template">
-        Notifications go here
-    </script>
-
-    <script id="competitionRowTemplate" type="text/template">
-        <a><%=name%></a>
-    </script>
-
-    <script id="competitionGraphTemplate" type="text/template">
-        <h1><%=name%> Graph</h1>
-        <div id="mainGraph"></div>
-        <!-- <canvas id="mainGraph" width="1024" height="728"></canvas> -->
-    </script>
-
-    <!-- <script src="https://login.persona.org/include.js"></script> -->
-    <script src=<?=base_url("/js/lib/json2.js")?>></script>
-    <script src=<?=base_url("/js/lib/jquery-1.7.1.js")?>></script>
-    <script src=<?=base_url("/js/lib/underscore.js")?>></script>
-    <script src=<?=base_url("/js/lib/backbone.js")?>></script>
-    <script src=<?=base_url("/js/lib/bootstrap.js")?>></script>
-	<script src=<?=base_url("/js/lib/Chart.js")?>></script>
-    <script src=<?=base_url("/js/lib/fastclick.js")?>></script>
-
-	<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.4.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.2.1/moment.min.js"></script>
-    <script src=<?=base_url("/js/lib/meteorcharts-v0.0.11-CUSTOM.js")?>></script>
-
-	<!-- <script type="text/javascript">
-	    navigator.id.watch({
-	        loggedInUser: <?= $email ? "'$email'" : 'null' ?>,
-	        // A user has logged in! Here you need to:
-		    // 1. Send the assertion to your backend for verification and to create a session.
-		    // 2. Update your UI.
-			onlogin: function(assertion) {
-
-			    $.ajax({ /* <-- This example uses jQuery, but you can use whatever you'd like */
-				      type: 'POST',
-				      url: "<?=base_url('/auth/login')?>", // This is a URL on your website.
-				      data: {assertion: assertion},
-				      success: function(res, status, xhr) {
-				      	$('#login').hide();
-				      	$('#logout').show();
-				      	$('#notifications').show();
-				      },
-				      error: function(xhr, status, err) {
-				        navigator.id.logout();
-				        $('#login').show();
-				      	$('#logout').hide();
-				      	$('#notifications').hide();
-				      }
-			    });
-		  	},
-		  onlogout: function() {
-			    // A user has logged out! Here you need to:
-			    // Tear down the user's session by redirecting the user or making a call to your backend.
-			    // Also, make sure loggedInUser will get set to null on the next page load.
-			    // (That's a literal JavaScript null. Not false, 0, or undefined. null.)
-			    $.ajax({
-			      type: 'POST',
-			      url: "<?=base_url('/auth/logout')?>", // This is a URL on your website.
-			      success: function(res, status, xhr) {
-			      	$('#login').show();
-			      	$('#logout').hide();
-			      	$('#notifications').hide();
-		      	},
-			      error: function(xhr, status, err) { alert("Logout failure: " + err); }
-			    });
-		   }
-	    });
-    </script> -->
-
-	<script type="text/javascript">
-			$(function() {
-	    		$('#mainContainer').on('click','#login',function(){
-	    			navigator.id.request();
-	    		});
-	    		$('#mainContainer').on('click','#logout',function(){
-	    			navigator.id.logout();
-	    		});
-			});
-	</script>
-
-    <script src=<?=base_url("/js/vs.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/addPlayer.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competition.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competitionCollection.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competitor.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competitionGraph.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competitorStat.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/competitorCollection.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/game.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/gameSaver.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/gameCollection.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/title.js?moo=")?><?=$randomlol?>></script>
-	<script src=<?=base_url("/js/models/titleCollection.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/tournament.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/models/tournamentCollection.js?moo=")?><?=$randomlol?>></script>
-
-
-    <script src=<?=base_url("/js/views/competitionRow.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/titleRow.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/titleView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/competitorRow.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/competitorView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/competitionGraphView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/competitorStatView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/newGameView2.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/gameHistoryView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/gameRow.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/allCompetitionsView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/competitionView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/tournamentView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/views/allTournamentsView.js?moo=")?><?=$randomlol?>></script>
-    <script src=<?=base_url("/js/router.js?moo=")?><?=$randomlol?>></script>
-
-
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="app/scripts/app.js"></script>
+        <script src="app/scripts/controllers/main.js"></script>
+        <script src="app/scripts/controllers/competition.js"></script>
+        <script src="app/scripts/controllers/competitiondetail.js"></script>
+        <script src="app/scripts/controllers/game.js"></script>
+        <script src="app/scripts/controllers/game-create.js"></script>
+        <!-- endbuild -->
 </body>
 </html>

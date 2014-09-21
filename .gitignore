@@ -171,3 +171,13 @@ application/config/config.php
 
 #removing ideas folder
 .idea/*
+
+
+#############
+## Bower/Angular
+#############
+
+.tmp
+.sass-cache
+bower_components
+node_modules

@@ -1,0 +1,95 @@
+<h1>{{competition.name}}</h1>
+<!--<% if (tournament) { %>-->
+<!--<h2><%=tournament['name']%> tournament match</h2>-->
+<!--<% } %>-->
+<div class="newGameContainer sectionBody text-center">
+  <div id="playerSection" class="row text-center" style="padding-bottom: 50px">
+    <div id="selectPlayer1" class="col-xs-5" ng-click="open()">
+      <img ng-if="!selectedLeftPlayer" src="img/avatars/selectPlayer.jpg"/>
+      <img ng-if="selectedLeftPlayer" ng-src="img/avatars/{{selectedLeftPlayer.avatarImg}}"/>
+    </div>
+    <div class="col-xs-2">
+      <img src="img/graphic_short.png" style="width: 100%; padding-top: 100px">
+    </div>
+    <div id="selectPlayer2" class="col-xs-5 text-center" ng-click="open()">
+      <img ng-if="!selectedLeftPlayer" src="img/avatars/selectPlayer.jpg"/>
+      <img ng-if="selectedLeftPlayer" ng-src="img/avatars/{{selectedRightPlayer.avatarImg}}"/>
+    </div>
+  </div>
+
+  <div id="winnerBtns" class="row text-center" ng-if="selectedLeftPlayer && selectedRightPlayer">
+    <div class="col-xs-5">
+      <button id="player1Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedLeftPlayer)">{{selectedLeftPlayer.name}}</button>
+    </div>
+    <div class="col-xs-2">Select winner</div>
+    <div class="col-xs-5 text-center">
+      <button id="player2Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedRightPlayer)">{{selectedRightPlayer.name}}</button>
+    </div>
+  </div>
+
+  <div id="scoresSection" class="row text-center" ng-repeat="winner in winners">
+        <div class="col-xs-5 text-center">
+          <div class="btnGroupWrap">
+            <button type="button" class="player1Btn btn btn-default btn-block"
+                    ng-class="{ 'btn-success': selectedLeftPlayer.competitor_id == winner.results[0].competitor_id }" >
+              {{(selectedLeftPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
+            </button>
+          </div>
+        </div>
+
+        <div class="col-xs-2 text-center gameNumber">
+          Game {{$index + 1}}
+        </div>
+
+        <div class="col-xs-5 text-center">
+          <div class="btnGroupWrap">
+            <button type="button" class="player1Btn btn btn-default btn-block"
+                    ng-class="{ 'btn-success': selectedRightPlayer.competitor_id == winner.results[0].competitor_id }" >
+              {{(selectedRightPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
+            </button>
+          </div>
+        </div>
+  </div>
+  <div id="resultsSection" class="row">
+
+  </div>
+
+  <button id="removeScore" class="btn-sm btn" ng-show="winners.length">Remove score</button>
+  <button id="submitScore" class="btn btn-lg btn-disabled btn-block" ng-show="winners.length" ng-click="saveGames()">Save result</button>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header" >
+    <div class="row">
+      <div class="col-xs-6">
+        <h4 class="modal-title">Player 1</h4>
+      </div>
+      <div class="col-xs-6">
+        <h4 class="modal-title">Player 2</h4>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div id="left_player_select" class="list-group col-xs-6" >
+        <a href class="list-group-item"
+           ng-repeat="player in competitors"
+           ng-click="playerLeftClick($index, player)"
+           ng-class="{ 'active': $index == leftIndex }">
+          <span><img ng-src="img/avatars/{{player.avatarImg}}" style="width: 30px; height: 30px"></span>
+          {{player.name}}
+        </a>
+      </div>
+      <div id="right_player_select" class="list-group col-xs-6" >
+        <a href class="list-group-item"
+           ng-repeat="player in competitors"
+           ng-click="playerRightClick($index, player)"
+           ng-class="{ 'active': $index == rightIndex }">
+          <span><img ng-src="img/avatars/{{player.avatarImg}}" style="width: 30px; height: 30px"></span>
+          {{player.name}}
+        </a>
+      </div>
+    </div>
+  </div>
+</script>
+
