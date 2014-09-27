@@ -19,47 +19,74 @@
 
   <div id="winnerBtns" class="row text-center" ng-if="selectedLeftPlayer && selectedRightPlayer">
     <div class="col-xs-5">
-      <button id="player1Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedLeftPlayer)">{{selectedLeftPlayer.name}}</button>
+      <button id="player1Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedLeftPlayer)">
+        {{selectedLeftPlayer.name}}
+      </button>
     </div>
     <div class="col-xs-2">Select winner</div>
     <div class="col-xs-5 text-center">
-      <button id="player2Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedRightPlayer)">{{selectedRightPlayer.name}}</button>
+      <button id="player2Btn" class="btn btn-default btn-block addScore" ng-click="addWon(selectedRightPlayer)">
+        {{selectedRightPlayer.name}}
+      </button>
     </div>
   </div>
 
-  <div id="scoresSection" class="row text-center" ng-repeat="winner in winners">
-        <div class="col-xs-5 text-center">
-          <div class="btnGroupWrap">
-            <button type="button" class="player1Btn btn btn-default btn-block"
-                    ng-class="{ 'btn-success': selectedLeftPlayer.competitor_id == winner.results[0].competitor_id }" >
-              {{(selectedLeftPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
-            </button>
-          </div>
+  <div id="scoresSection" class="row text-center" ng-if="winners.length" >
+    <div ng-repeat="winner in winners" style="margin-top: 5px" class="row">
+      <div class="col-xs-5 text-center">
+        <div class="btnGroupWrap">
+          <button type="button" class="player1Btn btn btn-default btn-block"
+                  ng-class="{ 'btn-success': selectedLeftPlayer.competitor_id == winner.results[0].competitor_id }">
+            {{(selectedLeftPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
+          </button>
         </div>
+      </div>
 
-        <div class="col-xs-2 text-center gameNumber">
-          Game {{$index + 1}}
-        </div>
+      <div class="col-xs-2 text-center gameNumber">
+        Game {{$index + 1}}
+      </div>
 
-        <div class="col-xs-5 text-center">
-          <div class="btnGroupWrap">
-            <button type="button" class="player1Btn btn btn-default btn-block"
-                    ng-class="{ 'btn-success': selectedRightPlayer.competitor_id == winner.results[0].competitor_id }" >
-              {{(selectedRightPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
-            </button>
-          </div>
+      <div class="col-xs-5 text-center">
+        <div class="btnGroupWrap">
+          <button type="button" class="player1Btn btn btn-default btn-block"
+                  ng-class="{ 'btn-success': selectedRightPlayer.competitor_id == winner.results[0].competitor_id }">
+            {{(selectedRightPlayer.competitor_id == winner.results[0].competitor_id) ? "Winner" : "Loser"}}
+          </button>
         </div>
+      </div>
+    </div>
   </div>
+
   <div id="resultsSection" class="row">
-
+    <div ng-if="saved" style="margin-top: 20px">
+      <div class="alert alert-success" role="alert"><strong>Game Saved</strong></div>
+    </div>
+    <!--<div class="col-xs-3">-->
+    <!--<strong class="player1Link"><a>{{game.p1.name}}</a></strong> vs <a class="player2Link">{{game.p2.name}}</a>-->
+    <!--</div>-->
+    <!--<div class="col-xs-3">-->
+    <!--{{game.p1.wins}} games to {{game.p2.wins}}-->
+    <!--</div>-->
+    <!--<div class="col-xs-2">-->
+    <!--<span class="good"><span style="color: green" class="glyphicon glyphicon-circle-arrow-up"></span>{{game.p1.elo_change}}</span>-->
+    <!--</div>-->
+    <!--<div class="col-xs-2">-->
+    <!--<span class="bad"><span style="color: red" class="glyphicon glyphicon-circle-arrow-down"></span>{{game.p2.elo_change}}</span>-->
+    <!--</div>-->
   </div>
 
-  <button id="removeScore" class="btn-sm btn" ng-show="winners.length">Remove score</button>
-  <button id="submitScore" class="btn btn-lg btn-disabled btn-block" ng-show="winners.length" ng-click="saveGames()">Save result</button>
+  <div class="row" style="margin-top: 10px">
+    <button id="removeScore" class="btn-sm btn" ng-show="winners.length" ng-click="removeGame()">Remove score</button>
+  </div>
+  <div class="row" style="margin-top: 10px">
+    <button id="submitScore" class="btn btn-lg btn-disabled btn-block" ng-show="winners.length" ng-click="saveGames()">
+      Save result
+    </button>
+  </div>
 </div>
 
 <script type="text/ng-template" id="myModalContent.html">
-  <div class="modal-header" >
+  <div class="modal-header">
     <div class="row">
       <div class="col-xs-6">
         <h4 class="modal-title">Player 1</h4>
@@ -71,7 +98,7 @@
   </div>
   <div class="modal-body">
     <div class="row">
-      <div id="left_player_select" class="list-group col-xs-6" >
+      <div id="left_player_select" class="list-group col-xs-6">
         <a href class="list-group-item"
            ng-repeat="player in competitors"
            ng-click="playerLeftClick($index, player)"
@@ -80,7 +107,7 @@
           {{player.name}}
         </a>
       </div>
-      <div id="right_player_select" class="list-group col-xs-6" >
+      <div id="right_player_select" class="list-group col-xs-6">
         <a href class="list-group-item"
            ng-repeat="player in competitors"
            ng-click="playerRightClick($index, player)"

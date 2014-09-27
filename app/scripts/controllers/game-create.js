@@ -12,6 +12,9 @@ angular.module('rivlApp')
 
     var compId = $routeParams.id;
 
+    //TODO: work out a better way of doing this MainCtrl selectedCompetitionId data
+    $scope.$parent.selectedCompetitionId = compId;
+
     $scope.competition = {};
     $scope.competitors = [];
 
@@ -93,6 +96,8 @@ angular.module('rivlApp')
       $scope.winners.push(gameModel);
     };
 
+    $scope.saved = false;
+
     $scope.saveGames = function(){
       console.log($scope.winners);
 
@@ -101,10 +106,19 @@ angular.module('rivlApp')
         data.push(angular.copy(winner));
       });
       var params = jQuery.param({ gameModels: data});
+
+      //TODO: before we save we need to ge the current players elo so we can calculate their change after submitting games
+      //be nice if this was actually the return result of the save
       $http.get('vs_api/game_saver?' +params).success(function(data){
         console.log(data);
+        $scope.winners = [];
+        $scope.saved = true;
       })
     };
+
+    $scope.removeGame = function(){
+      $scope.winners.pop();
+    }
 
 
 

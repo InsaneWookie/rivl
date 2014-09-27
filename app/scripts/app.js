@@ -24,7 +24,7 @@ angular
         controller: 'CompetitionCtrl'
     })
     .when('/competition/:id', {
-      templateUrl: 'app/views/competitiondetail.html',
+      templateUrl: 'app/views/competition-detail.html',
       controller: 'CompetitionDetailCtrl'
     })
     .when('/competition/:id/game', {
@@ -32,8 +32,12 @@ angular
       controller: 'GameCreateCtrl'
     })
     .when('/game', {
-      templateUrl: 'views/game.html',
+      templateUrl: 'app/views/game.html',
       controller: 'GameCtrl'
+    })
+    .when('/competition/:competitionId/player/:id', {
+      templateUrl: 'app/views/player-detail.html',
+      controller: 'PlayerDetailCtrl'
     })
     .otherwise({redirectTo: '/competition'})}
   ]);

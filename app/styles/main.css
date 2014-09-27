@@ -77,3 +77,510 @@ body {
     border-bottom: 0;
   }
 }
+
+
+#selectPlayer1 img, #selectPlayer2 img {
+    cursor: pointer;
+    /*width: 100%;*/
+    /*height: auto;*/
+    border: 1px solid #444;
+    border-radius: 50%;
+}
+
+#scoresSection {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+
+/* taken from original main */
+
+/*body {*/
+    /*padding-top: 60px;*/
+    /*font-size: 16px;*/
+    /*background: #fcfcfc;*/
+/*}*/
+/*h1 small, .row small {*/
+    /*color: #333;*/
+/*}*/
+/*h3.bigVal, h4.bigVal {*/
+    /*margin: 2px 0;*/
+/*}*/
+/*.spacer-20 {*/
+    /*margin-top: 20px;*/
+/*}*/
+/*.spacer-5 {*/
+    /*margin-top: 5px;*/
+/*}*/
+/*.fl {*/
+    /*float: left;*/
+/*}*/
+/*.fr {*/
+    /*float: right;*/
+/*}*/
+/*a {*/
+    /*color: #0082CA;*/
+    /*cursor: pointer;*/
+    /*text-decoration: none;*/
+/*}*/
+/*a:hover {*/
+    /*color: #F51DF5;*/
+    /*text-decoration: underline;*/
+/*}*/
+/*h2 {*/
+    /*font-size: 1.1em;*/
+/*}*/
+/*.table {*/
+    /*float: none;*/
+    /*display: table;*/
+/*}*/
+/*.tableCell {*/
+    /*float: none;*/
+    /*display: table-cell;*/
+/*}*/
+/*.clearer {*/
+    /*clear: both;*/
+/*}*/
+/*#previousGameBarDetails {*/
+    /*padding: 10px;*/
+    /*border: 1px solid #B6B6B6;*/
+    /*background: #F5F5F5;*/
+    /*border-radius: 4px;*/
+/*}*/
+/*.sectionBody {*/
+    /*max-width: 500px;*/
+    /*padding: 10px 0px 25px;*/
+/*}*/
+/*.bgGood {*/
+    /*background: #87DF87;*/
+/*}*/
+/*.bgBad {*/
+    /*background: #FC9797;*/
+/*}*/
+
+/*#previousGameBars {*/
+    /*margin-top: 5px;*/
+/*}*/
+/*.leaderboardAvatar {*/
+    /*width:32px;*/
+    /*height:32px;*/
+    /*position: absolute;*/
+    /*cursor: pointer;*/
+    /*-moz-border-radius: 50%;*/
+    /*-webkit-border-radius: 50%;*/
+    /*border-radius: 50%;*/
+    /*box-shadow: 0 0 0 2px #555;*/
+    /*-webkit-transition: all .2s ease-in-out;*/
+/*}*/
+/*.leaderboardAvatar:hover {*/
+    /*box-shadow: 0 0 0 2px #F55;*/
+    /*-webkit-transform: scale(1.2);*/
+    /*z-index: 99999;*/
+/*}*/
+/*.eloDisplay {*/
+    /*display: none;*/
+    /*position:absolute;*/
+    /*z-index:999;*/
+
+    /*border: 1px solid #bbb;*/
+    /*height: 28px;*/
+    /*line-height: 28px;*/
+    /*padding: 0px 10px;*/
+    /*font-size: 13px;*/
+    /*color: #555;*/
+    /*background: #bbb;*/
+    /*border-radius: 3px;*/
+    /*text-shadow: 0 1px 0 #ddd;*/
+/*}*/
+/* arrow: */
+/*.eloDisplay:after {*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*border-width: 8px;*/
+    /*border-style: solid;*/
+    /*border-color: transparent #bbb transparent transparent;*/
+    /*top: 5px;*/
+    /*left: -16px;*/
+/*}*/
+
+/*.mirrorImage {*/
+    /*display:block;*/
+    /*-webkit-transform: matrix(-1, 0, 0, 1, 0, 0);*/
+    /*-moz-transform: matrix(-1, 0, 0, 1, 0, 0);*/
+    /*-o-transform: matrix(-1, 0, 0, 1, 0, 0);*/
+    /*transform: matrix(-1, 0, 0, 1, 0, 0);*/
+/*}*/
+/*.gameNumber {*/
+    /*color: #999;*/
+    /*font-size: 0.8em;*/
+    /*line-height: 2.7em;*/
+    /*padding: 0;*/
+/*}*/
+/*.scoreRow .btn-loser {*/
+    /*color: #888;*/
+    /*background: #f1f1f1;*/
+/*}*/
+/*.scoreRow .btn-group {*/
+    /*width: 100%;*/
+/*}*/
+/*#vsLabel {*/
+    /*background-image: url("../img/graphic_sm.png");*/
+    /*background-repeat:no-repeat;*/
+    /*background-position:center;*/
+    /*padding: 60px 0;*/
+/*}*/
+/*#selectPlayer1 img, #selectPlayer2 img {*/
+    /*cursor: pointer;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    /*border: 1px solid #444;*/
+    /*border-radius: 50%;*/
+/*}*/
+
+/*#playerSection {*/
+    /*margin-bottom: 1.2em;*/
+/*}*/
+/*#playerSelectModal {*/
+    /*-webkit-overflow-scrolling: touch;*/
+/*}*/
+/*#playerSelectModal .modal-body {*/
+    /*padding: 0px;*/
+/*}*/
+/*#playerSelectModal .list-group-item {*/
+    /*border: 0;*/
+    /*padding-top: 7px;*/
+    /*padding-bottom: 7px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*#playerSelectModal .list-group-item:hover {*/
+    /*background: #f9f9f9;*/
+/*}*/
+/*#playerSelectModal .playerSelectAvatar {*/
+    /*width: 28px;*/
+    /*height: 28px;*/
+    /*margin-right: 4px;*/
+/*}*/
+/*.headingAvatar {*/
+    /*float: left;*/
+    /*margin: 0 5px 0 0;*/
+/*}*/
+/*.roundAvatar {*/
+    /*border-radius: 50%;*/
+    /*box-shadow: 0 0 0 2px #555;*/
+/*}*/
+/*.avatarLink {*/
+    /*cursor: pointer;*/
+/*}*/
+/*.avatarLink:hover {*/
+    /*box-shadow: 0 0 0 2px #1C94C4;*/
+/*}*/
+/*.smallAvatar {*/
+    /*height: 40px;*/
+    /*width: 40px;*/
+/*}*/
+/*.mediumAvatar {*/
+    /*height: 50px;*/
+    /*width: 50px;*/
+/*}*/
+/*.largeAvatar {*/
+    /*height: 60px;*/
+    /*width: 60px;*/
+/*}*/
+
+/*#recentGames .roundAvatar {*/
+    /*margin-bottom: 6px;*/
+/*}*/
+/*.recentWin, .recentLoss {*/
+    /*color: #fff;*/
+    /*width: 22px;*/
+    /*height: 22px;*/
+    /*border-radius: 50%;*/
+    /*display: inline-block;*/
+    /*line-height: 22px;*/
+/*}*/
+/*.recentWin {*/
+    /*background: green;*/
+    /*text-shadow: 0 -1px 0 rgb(14, 53, 14);*/
+/*}*/
+/*.recentLoss {*/
+    /*background: red;*/
+    /*text-shadow: 0 -1px 0 rgb(97, 15, 0);*/
+/*}*/
+/*.vs {*/
+    /*font-size: 30px;*/
+    /*color: #888;*/
+    /*text-shadow: 0 -1px 0 #9C9C9C;*/
+    /*font-weight: normal;*/
+    /*letter-spacing: 1px;*/
+    /*font-style: italic;*/
+/*}*/
+/*button.addScore {*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+/*}*/
+/*.scoreRow {*/
+    /*margin: 0.2em 0;*/
+/*}*/
+/*.scoreRow *:focus {*/
+    /*outline: 0;*/
+/*}*/
+/*#removeScore {*/
+    /*padding: 0 5px;*/
+    /*opacity: 0.7;*/
+/*}*/
+/*#scoresSection {*/
+    /*border-top: 1px solid #ddd;*/
+    /*padding-top: 20px;*/
+    /*margin-top: 20px;*/
+/*}*/
+/*#resultsSection {*/
+    /*margin-bottom: 20px;*/
+/*}*/
+/*.resultsRow .rankUp, .resultsRow .rankDown {*/
+    /*font-size: 2em;*/
+/*}*/
+/*span.rankDown {*/
+    /*color: red;*/
+/*}*/
+/*span.rankUp {*/
+    /*color: green;*/
+/*}*/
+/*span.rankNeutral {*/
+    /*background-image: url("../img/neutral_arrow_48.png");*/
+/*}*/
+/*.dataTable td {*/
+    /*padding: 2px 40px 2px 1px;*/
+/*}*/
+/*.dataTable.rowLinks tbody tr {*/
+    /*cursor: pointer;*/
+/*}*/
+/*.dataTable.rowLinks tbody tr:hover {*/
+    /*background: #f5f5f5;*/
+/*}*/
+/*#submitScore {*/
+    /*margin: 15px 0;*/
+/*}*/
+/*.clickableRow:hover {*/
+    /*background: #f5f5f5;*/
+/*}*/
+/*.clickableRow {*/
+    /*cursor: pointer;*/
+/*}*/
+/*bootstrap modal fix*/
+/*.modal-open, .modal-open .navbar-fixed-top {*/
+    /*margin-right: auto !important;*/
+/*}*/
+/*.radius-left {*/
+    /*border-bottom-left-radius: 3px;*/
+    /*border-top-left-radius: 3px;*/
+/*}*/
+/*.radius-right {*/
+    /*border-bottom-right-radius: 3px;*/
+    /*border-top-right-radius: 3px;*/
+/*}*/
+/*.percentBarRow {*/
+    /*margin-right: 0;*/
+    /*margin-left: 0;*/
+    /*border-top: 1px solid #fff;*/
+    /*border-bottom: 1px solid #ddd;*/
+    /*padding-left: 0px;*/
+    /*line-height: 30px;*/
+    /*height: 30px;*/
+/*}*/
+/*.percentBarRow a {*/
+    /*display: block;*/
+/*}*/
+/*.playerStatsRowName, .playerPosition {*/
+    /*padding-left: 0;*/
+    /*height:29px;*/
+/*}*/
+/*.playerStatsRowName a {*/
+    /*display: block;*/
+/*}*/
+/*#showRivlStatsOverflow {*/
+    /*margin-top: 8px;*/
+/*}*/
+/*.percentBar {*/
+    /*background: #FC9797;*/
+    /*line-height: 29px;*/
+    /*overflow: hidden;*/
+    /*height: 29px;*/
+/*}*/
+/*.bar {*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+/*}*/
+/*.bar span:before, .bar span:after {*/
+    /*content: "\00a0";*/
+/*}*/
+/*.barBad {*/
+    /*right: 0;*/
+    /*text-align: right;*/
+/*}*/
+/*.barGood {*/
+    /*background: #87DF87;*/
+    /*left: 0;*/
+    /*text-align: left;*/
+/*}*/
+/*.eloGood {*/
+    /*background: #87DF87;*/
+/*}*/
+/*.eloBad {*/
+    /*background: #FC9797;*/
+/*}*/
+/*.notesContents {*/
+    /*padding: 2px;*/
+    /*background: #FFFBAE;*/
+    /*height: 100%;*/
+/*}*/
+/*.barInfo {*/
+    /*text-align: center;*/
+    /*margin-left: -65px;*/
+/*}*/
+/*.barInfo span {*/
+    /*background: rgba(255, 255, 255, 0.7);*/
+    /*position: absolute;*/
+    /*width: 65px;*/
+    /*height: 1.2em;*/
+    /*line-height: 1.2em;*/
+    /*margin-top: 0.3em;*/
+/*}*/
+/*.playedMeterWrapParent {*/
+    /*padding-right: 0;*/
+/*}*/
+/*.playedMeterWrap {*/
+    /*width: 100%;*/
+/*}*/
+/*.playerGamesBar {*/
+    /*height: 1.8em;*/
+    /*min-width: 2px;*/
+/*}*/
+/*.gamesPlayedLabel {*/
+    /*padding-left: 5px;*/
+    /*line-height: 1.8em;*/
+/*}*/
+/*.bad {*/
+    /*color: red;*/
+/*}*/
+/*.good {*/
+    /*color: green;*/
+/*}*/
+/*#rivlStatsOverflow {*/
+    /*display: none;*/
+    /*width: 100%;*/
+/*}*/
+
+/* button overrides, so that last-entered score doesn't look different */
+/*.btn-primary:focus {*/
+    /*background-color: #428bca;*/
+    /*border-color: #357ebd;*/
+/*}*/
+
+/* challonge stuff */
+/*.tournamentTable td {*/
+    /*vertical-align: top;*/
+    /*padding: 0;*/
+/*}*/
+/*.match {*/
+    /*position: relative;*/
+/*}*/
+/*.matchIdentifier {*/
+    /*position: absolute;*/
+    /*top: 23px;*/
+    /*left: 4px;*/
+    /*width:17px;*/
+    /*background: #555;*/
+    /*color: #fff;*/
+    /*height: 17px;*/
+    /*line-height: 17px;*/
+    /*text-shadow: 0 -1px 0 #444;*/
+    /*font-size: 10px;*/
+    /*text-align: center;*/
+/*}*/
+/*.matchMain {*/
+    /*border: 1px solid #aaa;*/
+    /*float: left;*/
+    /*width: 165px;*/
+    /*height: 60px;*/
+    /*overflow: hidden;*/
+    /*background: #f9f9f9;*/
+/*}*/
+/*.matchResults {*/
+    /*border: 1px solid #aaa;*/
+    /*border-left: 0;*/
+    /*border-radius: 0 4px 4px 0;*/
+    /*float: left;*/
+    /*width: 20px;*/
+    /*height: 60px;*/
+    /*background: #eee;*/
+    /*font-size: 10px;*/
+    /*text-align: center;*/
+/*}*/
+/*.matchResult {*/
+    /*line-height: 29px;*/
+    /*height: 29px;*/
+/*}*/
+/*.matchPlayer {*/
+    /*line-height: 29px;*/
+    /*clear: both;*/
+    /*overflow: hidden;*/
+/*}*/
+/*.matchPlayer.playerHover {*/
+    /*background: #ccc;*/
+/*}*/
+/*.matchPlayerName {*/
+    /*font-size: 13px;*/
+    /*white-space: nowrap;*/
+    /*text-overflow: ellipsis;*/
+    /*overflow: hidden;*/
+    /*width: 85px;*/
+    /*float: left;*/
+/*}*/
+/*.matchPlayerName .noPlayer {*/
+    /*font-size: 11px;*/
+/*}*/
+/*.matchPlayer:first-child {*/
+    /*border-bottom: 1px solid #ccc;*/
+/*}*/
+
+/*.matchAvatar {*/
+    /*width:20px;*/
+    /*height:20px;*/
+    /*margin: 5px;*/
+    /*float: left;*/
+/*}*/
+/*.matchGrid {*/
+    /*width: 20px;*/
+    /*height: 60px;*/
+    /*float: left;*/
+/*}*/
+/*.gridLineHoriz {*/
+    /*height: 32px;*/
+    /*border-bottom: solid 1px;*/
+/*}*/
+/*.gridLineUp {*/
+    /*height: 32px;*/
+    /*border-right: solid 1px;*/
+    /*border-bottom: solid 1px;*/
+    /*border-radius: 0 0 3px 0;*/
+/*}*/
+/*.gridLineDown {*/
+    /*height: 30px;*/
+    /*border-top: solid 1px;*/
+    /*border-right: solid 1px;*/
+    /*border-radius: 0 3px 0 0;*/
+/*}*/
+/*.gridLineNone {*/
+    /*height: 30px;*/
+/*}*/
+/*.matchSpacerVert {*/
+    /*border-right: solid 1px;*/
+/*}*/
+/*.gridLine {*/
+    /*border-color: #E646BF;*/
+/*}*/
+
+

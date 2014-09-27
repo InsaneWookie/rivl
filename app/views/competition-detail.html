@@ -1,0 +1,69 @@
+<script type="text/ng-template" id="game-history.html">
+  <!-- interim way: no scores or clumping: -->
+  <div class="col-xs-3">
+    <strong class="player1Link"><a>{{game.p1.name}}</a></strong> vs <a class="player2Link">{{game.p2.name}}</a>
+  </div>
+  <div class="col-xs-3">
+    {{game.p1.wins}} games to {{game.p2.wins}}
+  </div>
+  <div class="col-xs-2">
+    <span class="good"><span style="color: green" class="glyphicon glyphicon-circle-arrow-up"></span>{{game.p1.elo_change}}</span>
+  </div>
+  <div class="col-xs-2">
+    <span class="bad"><span style="color: red" class="glyphicon glyphicon-circle-arrow-down"></span>{{game.p2.elo_change}}</span>
+  </div>
+</script>
+
+<div class="row">
+  <h1>{{competition.name}} Leaderboard</h1>
+
+  <div class="sectionBody table">
+    <div id="competitors" class="col-xs-9" style="padding: 0;" ng-repeat="player in competitors">
+      <div class="col-xs-3 playerPosition">
+        {{player.rank}}
+      </div>
+      <div class="col-xs-3">
+        <a class="playerLink link" ng-href="#/competition/{{competition.id}}/player/{{player.competitor_id}}">{{player.name}}</a>
+      </div>
+      <div class="col-xs-6" id="leaderCanvasHolder">
+        <progressbar value="player.elo" max="maxElo"></progressbar>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <a id="addPlayer">Is your name missing?</a>
+
+  <div id="addPlayerDiv" class="hidden">
+    Name: <input type="text" id="addPlayerName" name="firstname">
+    <button id="addPlayerButton">Add player</button>
+  </div>
+</div>
+
+<div class="row">
+  <h2>Game History</h2>
+
+  <div class="sectionBody row">
+
+    <h4 id="noGameHistory" ng-if="!todayGames.length && !yesterdayGames.length">No games today or yesterday</h4>
+
+    <div ng-if="todayGames.length || yesterdayGames.length">
+      <div id="gameHistoryTodayContent">
+        <h4>Today</h4>
+
+        <div id="gameHistoryToday">
+          <div class="row" ng-repeat="game in todayGames" ng-include="'game-history.html'"></div>
+        </div>
+      </div>
+      <div id="gameHistoryYesterdayContent">
+        <h4>Yesterday</h4>
+
+        <div id="gameHistoryYesterday">
+          <div class="row" ng-repeat="game in yesterdayGames" ng-include="'game-history.html'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

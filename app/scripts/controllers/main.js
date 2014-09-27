@@ -8,10 +8,10 @@
  * Controller of the rivlApp
  */
 angular.module('rivlApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $routeParams) {
+
+    $scope.selectedCompetitionId = null;
+//    if($routeParams.id){
+//      $scope.selectedCompetitionId = $routeParams.id
+//    }
   });

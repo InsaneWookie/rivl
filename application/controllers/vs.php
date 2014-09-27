@@ -21,7 +21,8 @@ class Vs extends CI_Controller {
 
 
 
-		$this->load->view('index',$data);
+		//$this->load->view('index',$data);
+		readfile('app/index.html');
 
 	}
 

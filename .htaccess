@@ -1,10 +1,40 @@
 
 RewriteEngine on
 
+#RewriteBase /app
+
+#RewriteCond %{REQUEST_URI} ^/$
+#Rewriterule ^(.*)$ /app/ [L]
+
+#RewriteCond %{REQUEST_URI} ^/$
+#RewriteRule ^/* app/index.html [L]
+
+#RewriteCond %{REQUEST_URI} ^/app
+#RewriteRule ^/* app/scripts/ [L]
+
+
+#RewriteCond %{REQUEST_URI} ^/scripts/$
+#RewriteRule ^/* app/scripts/$ [L]
+
+
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-#RewriteRule .* app/ [L]
+
+#RewriteRule / app/index.html [L]
+
+#RewriteBase /app/
+#RewriteRule index.html app/index.html
+
+
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+
+#RewriteRule /app/bower_components/*  /bower_components [L]
+#RewriteRule .* app/$0 [L]
 RewriteRule .* index.php/$0 [L]
 #RewriteRule .* index.php/$0 [PT,L]
 
